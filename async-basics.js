@@ -13,24 +13,27 @@ console.log("app closing")
 
 
 //Async with callBack
-// var getUser = ( id, callBack) => {
+ var getUser = ( id, callBack) => {
+      var user = {
+            id : id,
+            name : "Godzilla"
+      };
+      callBack(user);
+ }
 
-
-// }
-
-// getUser(39, (userObject) => {
-//       console.log(userObject)
-// }) 
-
-
-var getUser = function( id, callBack){
-    var user = {
-          id : id,
-          name : "Godzilla"
-    };
-    callBack(user);
-}
-
-getUser(39, function(userObject){
+getUser(39, (userObject) => {
       console.log(userObject)
 }) 
+
+
+// var getUser = function( id, callBack){
+//     var user = {
+//           id : id,
+//           name : "Godzilla"
+//     };
+//     callBack(user);
+// }
+
+// getUser(39, function(userObject){
+//       console.log(userObject)
+// }) 
