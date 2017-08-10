@@ -18,7 +18,10 @@ console.log("app closing")
             id : id,
             name : "Godzilla"
       };
-      callBack(user);
+      setTimeout(() => {
+          callBack(user);  
+      }, 3000);
+     
  }
 
 getUser(39, (userObject) => {
