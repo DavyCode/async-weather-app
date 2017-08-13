@@ -6,7 +6,8 @@ request ({
     json : true
 }, (err, res, body) => {
     console.log("========================= ***************main waether coontent");
-    console.log(JSON.stringify(body, undefined, 2));
+    // console.log(JSON.stringify(res, undefined, 2));
+    console.log(body.results)
     console.log("========================================****************");
 });
 
