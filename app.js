@@ -2,10 +2,21 @@ const request = require("request");
 
 const yargs = require("yargs");
 
-const argv =  yargs;
+const argv =  yargs
+     .options({
+      a: {
+          demand: true,
+          alias : "address",
+          describe : "address to fetch weather for",
+          string : true
+      }
+})
+.help()
+.alias("help", "h")
+.argv
 
 
-request ({
+request({
     url : "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22nome%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys",
     json : true
 }, (err, res, body) => {
