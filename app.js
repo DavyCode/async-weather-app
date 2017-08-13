@@ -6,8 +6,11 @@ request ({
     json : true
 }, (err, res, body) => {
     console.log("========================= ***************main waether coontent");
-    // console.log(JSON.stringify(res, undefined, 2));
-    console.log(body.results)
+    // console.log(JSON.stringify(body.query.results, undefined, 2));
+    console.log('Title : ' + body.query.results.channel.title)
+    console.log('City : '+body.query.results.channel.location.city)
+    console.log('Longitude : '+body.query.results.channel.item.long)
+    console.log('Latitude : '+body.query.results.channel.item.lat)
     console.log("========================================****************");
 });
 
