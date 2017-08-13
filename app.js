@@ -1,6 +1,8 @@
+// YAHOO API'
 const request = require("request")
       yargs = require("yargs");
 
+// Configure Yargs 
 const argv =  yargs
      .options({
       a: {
@@ -14,11 +16,12 @@ const argv =  yargs
 .alias("help", "h")
 .argv
 
-console.log(argv)
 
+//encode user input
 var encodedString = encodeURIComponent(argv.address);
-console.log(encodedString);
 
+
+//Request to yahoo api
 request({
     url : `https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22${encodedString}%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`,
     json : true
@@ -32,10 +35,10 @@ request({
     // console.log(JSON.stringify(body.query.results, undefined, 2));
     //   console.log(JSON.stringify(res.statusCode, undefined, 2));
 
-    console.log('Title : ' + body.query.results.channel.title)
-    console.log('City : '+ body.query.results.channel.location.city)
-    console.log('Longitude : '+body.query.results.channel.item.long)
-    console.log('Latitude : '+body.query.results.channel.item.lat)
+    console.log('Title : '     + body.query.results.channel.title)
+    console.log('City : '      + body.query.results.channel.location.city)
+    console.log('Longitude : ' +body.query.results.channel.item.long)
+    console.log('Latitude : '  +body.query.results.channel.item.lat)
   
     console.log("========================================****************");
     console.log('Title : ' + body);
