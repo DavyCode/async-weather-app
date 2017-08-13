@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/DavyCode/async-weather-app#readme",
   "dependencies": {
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "yargs": "^8.0.2"
   }
 }
