@@ -34,15 +34,14 @@ console.log("========================= ***************main waether coontent");
       }else if( body.status === "ZERO_RESULTS"){
           console.log(body.status)
           console.log('Unable to find address!!!!!!!!!!!!!')
+      }else if (body.status === 'OK'){
+          console.log('City: ' + body.results[0].formatted_address)
+          console.log('Longitude : '+body.results[0].geometry.location.lng)
+          console.log('Longitude : '+body.results[0].geometry.location.lat)
+
       }
     // console.log(JSON.stringify(body.results, undefined, 2));
     //   console.log(JSON.stringify(res.statusCode, undefined, 2));
-
-console.log('City: ' + body.results[0].formatted_address)
-console.log('Longitude : '+body.results[0].geometry.location.lng)
-console.log('Longitude : '+body.results[0].geometry.location.lat)
-
-
 console.log("========================================****************");
 
 });
