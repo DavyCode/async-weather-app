@@ -1,4 +1,4 @@
-// YAHOO API'
+// YAHOO API
 const request = require("request")
       yargs = require("yargs");
 

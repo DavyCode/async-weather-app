@@ -1,8 +1,9 @@
+// GOOGLE GEOCODING API
 const request = require("request")
 yargs = require("yargs");
 
 
-
+// Configure Yargs 
 const argv =  yargs
 .options({
 a: {
@@ -17,12 +18,15 @@ a: {
 .argv
 
 
-var encodedString = encodeURIComponent(argv.address);
-console.log(encodedString);
 
+//encode user input
+var encodedString = encodeURIComponent(argv.address);
+
+
+//Request to google geocoding api
 request({
-url : `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedString}&key=AIzaSyB-G2tlet4CPdjtScuygdwO64cUP2jboEc`,
-json : true
+    url : `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedString}&key=AIzaSyB-G2tlet4CPdjtScuygdwO64cUP2jboEc`,
+    json : true
 }, (err, res, body) => {
 console.log("========================= ***************main waether coontent");
       if(err){
