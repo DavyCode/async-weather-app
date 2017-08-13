@@ -1,6 +1,6 @@
 const yargs = require("yargs");
 const geocodeaddress = require('./geocode/yahoogeocode.js')
-
+const googleGeoCodeaddress = require('./geocode/geoCode.js')
 
 
 
@@ -19,3 +19,5 @@ const argv =  yargs
 .argv
 
 geocodeaddress.geoAddress(argv.address);
+
+googleGeoCodeaddress.googleGeoAddress(argv.address);
