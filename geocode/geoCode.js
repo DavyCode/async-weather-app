@@ -2,7 +2,7 @@
 const request = require("request")
 
 
-var googleGeoAddress = (address) => {
+var googleGeoAddress = (address, callback) => {
   //encode user input
   var encodedString = encodeURIComponent(address);
         //Request to google geocoding api
@@ -10,12 +10,15 @@ var googleGeoAddress = (address) => {
             url : `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedString}&key=AIzaSyB-G2tlet4CPdjtScuygdwO64cUP2jboEc`,
             json : true
         }, (err, res, body) => {
-        console.log("========================= ***************main waether content");
+        console.log(" *****************");
             if(err){
-                console.log("Cannot reach server!!!!!!!!!!!!!")
+                callback("Cannot reach server!!!!!!!!!!!!!")
             }else if( body.status === "ZERO_RESULTS"){
-                console.log('Unable to find address!!!!!!!!!!!!!')
+                callback('Unable to find address!!!!!!!!!!!!!')
             }else if (body.status === 'OK'){
+                callback(undefined, {
+                     Title: body.results
+                })
                 console.log(`Title : Google! Weather - ${body.results[0].formatted_address} `)
                 console.log('City: ' + body.results[0].formatted_address)
                 console.log('Longitude : '+body.results[0].geometry.location.lng)
@@ -26,8 +29,6 @@ var googleGeoAddress = (address) => {
         console.log("========================================****************");
         });
 }
-
-
 module.exports.googleGeoAddress = googleGeoAddress;
 
 
