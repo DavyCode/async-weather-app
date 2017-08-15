@@ -21,7 +21,7 @@ const argv =  yargs
 geocodeaddress.geoAddress(argv.address);
 
 googleGeoCodeaddress.googleGeoAddress(argv.address, (errMessage, results) => {
-    if(err){
+    if(errMessage){
          console.log(errMessage);
     }else{
          console.log(JSON.stringify(results, undefined, 2));
