@@ -20,7 +20,7 @@ var googleGeoAddress = (address, callback) => {
                      Title: body.results[0].formatted_address,
                      City : body.results[0].formatted_address,
                      Longitude : body.results[0].geometry.location.lng,
-                     Longitude : body.results[0].geometry.location.lat
+                     Latitude : body.results[0].geometry.location.lat
 
                 })
                 // console.log(`Title : Google! Weather - ${body.results[0].formatted_address} `)
