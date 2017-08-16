@@ -30,7 +30,7 @@ var googleGeoAddress = (address, callback) => {
             }
             // console.log(JSON.stringify(body.results, undefined, 2));
             //   console.log(JSON.stringify(res.statusCode, undefined, 2));
-        console.log("*******************************");
+        console.log("*******************************************");
         });
 }
 module.exports.googleGeoAddress = googleGeoAddress;
